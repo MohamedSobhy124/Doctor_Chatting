@@ -1,0 +1,83 @@
+﻿@model DaitationProject.Models.MailModel
+
+@{
+    ViewBag.Title = "SendEmail";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    var message = ViewBag.SuccessMsg;
+}
+
+
+
+
+    <legend>
+        Send Email
+    </legend>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        <p>@Html.HiddenFor(m => m.From)</p>
+
+       
+                        <div class="row">
+
+                            <div class="col-12 ">
+                                @Html.TextBoxFor(m => m.To, new { @class = "form-control bg-light border-0", @required = "required" })
+                                @*<input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">*@
+                            </div><br />
+                            <div class="col-12">
+                                @*<input type="text" class="form-control bg-light border-0" placeholder="Subject" style="height: 55px;">*@
+                                @Html.TextBoxFor(m => m.Subject, new { @class = "form-control bg-light border-0  ", @required = "required", @placeholder = "Subject" })
+                            </div><br />
+                            <div class="col-12">
+                                @*<textarea class="form-control bg-light border-0" rows="5" placeholder="Message"></textarea>*@
+                                @Html.TextAreaFor(m => m.Body, new { @class = "form-control bg-light border-0",@required = "required",@placeholder = "Message", @rows = "5" })
+                            </div><br />
+                            <div class="col-12" >
+                                <div class="col-4">
+
+                                </div>
+                                <button class=" btn-primary w-100 py-3" type="submit" style="margin:auto; color:aliceblue ;">Send Message</button>
+
+                            </div>
+                    
+         
+        </div>
+      
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message = '@message';
+    if(message){
+        alert(message);
+    }
+</script>

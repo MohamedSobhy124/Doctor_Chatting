@@ -1,0 +1,59 @@
+﻿@model IEnumerable<DaitationProject.Entity.Appointments>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.AppID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.AppID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.AppID })
+            </td>
+        </tr>
+    }
+
+</table>

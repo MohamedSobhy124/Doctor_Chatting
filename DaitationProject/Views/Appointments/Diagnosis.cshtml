@@ -1,0 +1,65 @@
+﻿@model DaitationProject.Entity.Diagnosis
+@*@using Syncfusion.EJ2
+
+@using Syncfusion.EJ2.DropDowns*@
+
+@{
+    ViewBag.Title = "Diagnosis";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Diagnosis</h2>
+
+<br />
+
+
+
+
+@using (Html.BeginForm("Diagnosis", "Appointments", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Appid)
+    @Html.HiddenFor(model => model.ID)
+    @Html.HiddenFor(model => model.DiagnosisID)
+<div class="form-group">
+    @Html.LabelFor(model => model.DCode, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-8">
+
+        @Html.DropDownList("DCode", null, htmlAttributes: new { @class = "form-control d-none chosen-select" })
+        @*@Html.EJS().DropDownList("games").Placeholder("Select a game").PopupHeight("200px").DataSource((IEnumerable<GameList>)ViewBag.localdata).Fields(new DropDownListFieldSettings { Text = "Game" }).Render()*@
+
+    </div>
+    <div class=" col-md-1">
+        <input type="submit" value="add" class="btn btn-default" />
+        @*@Html.ActionLink("Create", "Chat","User",new {Type= "submit" })*@
+    </div>
+</div>
+    <div class="row">
+       
+    </div>
+
+}
+<br />
+<div class="form-group">
+    <div class="col-md-12">
+        <table class="table-bordered table-striped table table-condensed">
+            <thead>
+            <th>Code</th>
+            <th>Type</th>
+            <th>Description</th>
+            </thead>
+            <tbody>
+
+                @foreach (var student in ViewBag.getDiagnosis)
+                {
+                    <tr>
+                        <td>@student.DCode</td>
+                        <td>@student.Type</td>
+                        <td>@student.DDescription</td>
+                        <td> @Html.ActionLink("Delete", "DeleteDiagnosis", new { id = student.ID, @class = "button-default link" }, new { onclick = "return confirm('Are you sure?');", @class = "btn btn-danger" })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

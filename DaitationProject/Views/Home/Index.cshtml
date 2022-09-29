@@ -1,0 +1,16 @@
+﻿@model DaitationProject.Entity.Payments
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="/Home/CreateCheckoutSession" method="POST">
+    <br />
+    <br />
+    <br />
+    <br />
+    <input type="text" id="TextBox1" required placeholder="amount" readonly value="@Model.Amount" name="amount" /><br />
+    <br />
+
+    <button type="submit" class="btn btn-success">Pay</button>
+</form>

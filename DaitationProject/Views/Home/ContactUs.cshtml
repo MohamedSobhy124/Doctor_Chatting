@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>ContactUs</h2>
+<br>
+
+
+<div>
+
+    <a href="https://api.whatsapp.com/send?phone=971527383841" style="display: inline-block; padding:16px; border-radius: 8px; color: #fff; text-decoration: none; font-family: sans-serif;" target="_blank"><img src="~/Content/images/WhatsApp.jpg" style="width: 50px;height:50px;"></a>
+
+</div>
+<br>
+<form action="https://formsubmit.co/shazamashaal308@gmail.com" method="POST">
+    <!-- <form action="https://formsubmit.co/waleedwageh111@gmail.com" method="POST">  -->
+    <input type="hidden" name="_subject" value="New Appointment">
+    <input type="text" name="_honey" style="display:none">
+    <input type="hidden" name="_captcha" value="false">
+    <div class="row">
+        <div class="col-md-2"><label>Name</label></div>
+        <div class="col-md-4"> <input type="text" name="name" required></div>
+        <div class="col-md-2"><label>email</label></div>
+        <div class="col-md-4"><input type="email" name="email" required></div>
+    </div>    <br />
+    <div class="row">
+        <div class="col-md-2"><label>Mobile</label></div>
+        <div class="col-md-4"><input type="number" name="Mobile" required></div>
+        <div class="col-md-2"> <label>message</label></div>
+        <div class="col-md-4"><textarea name="message" style="width:80%;" placeholder="Put Your Message Please"></textarea></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2"><label>Appointment Date</label></div>
+        <div class="col-md-4"><input type="date" name="Appointment date" id="datepicker" required></div>
+        <div class="col-md-2"><label>Appointment time</label></div>
+        <div class="col-md-4"><input type="time" name="Appointment time" required></div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-success">Send</button>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+    </div>
+
+
+</form>
+

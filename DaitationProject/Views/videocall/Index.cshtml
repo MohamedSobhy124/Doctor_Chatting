@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Meeting";
+    Layout = "~/Views/Shared/video.cshtml";
+}
+<div id="basic1" style="text-align:center;" class="">Send your URL to a friend to start a video call</div>
+<br />
+
+<br />
+<div id="basic" style="text-align:center;margin-bottom: 50px;" class=""><button class="btn btn-success" onClick="window.location.reload();">Reconnect</button></div>
+
+<div class="">
+    <div class="row">
+        <div class="col-xs-12 col-md-1"></div>
+        <div class="col-xs-12 col-md-4">
+            <video id="localVideo" autoplay class="videostream" muted preload="metadata" loop></video>
+        </div>
+        <div class="col-xs-12 col-md-2"></div>
+        <div class="col-xs-12 col-md-4">
+            <video id="remoteVideo" class="videostream" autoplay></video>
+        </div>
+        <div class="col-xs-12 col-md-1"></div>
+    </div>
+
+
+</div>

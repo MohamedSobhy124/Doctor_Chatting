@@ -1,0 +1,165 @@
+﻿@model IEnumerable<DaitationProject.Entity.Appointments>
+
+@{
+    ViewBag.Title = "PatientAppointments";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>PatientAppointments</h2>
+
+<table id="table_id" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppStatus.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+
+            @if (MySession.Current.RoleID == 1)
+            {
+                <th></th>
+            }
+                @*<th></th>*@
+            </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            if (item.StatusID == 1)
+            {
+
+        <tr style="background:orange">
+            <td>
+
+                @Html.DisplayFor(modelItem => item.PatientName)
+                <input type="text" name="Patient_Name" hidden value='@item.PatientName'>
+                @*<asp:TextBox
+            runat="server" ReadOnly="true" AutoPostBack="true" Text='<%=@item.PatientName%>'></asp:TextBox>*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppDate)
+                <input type="text" name="AppDate" hidden value='@item.AppDate'>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppTime)
+                <input type="text" name="AppTime" hidden value='@item.AppTime'>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppStatus.Status)
+                <input type="text" name="Status" hidden value='@item.AppStatus.Status'>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            @if (MySession.Current.RoleID == 1)
+            {
+                <td>
+
+                    @Html.ActionLink("Confirm", "Edit", new { id = item.AppID, @class = "btn btn-info" }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AppID, @class = "button-default link" }, new { onclick = "return confirm('Are you sure?');", @class = "btn btn-danger" })
+                    @Html.ActionLink("Email", "SendEmail", new { id = item.AppID, @class = "btn btn-success" }, new { @class = "btn btn-success" })
+
+                </td>
+            }
+
+        </tr>
+
+
+
+            }
+            else if (item.StatusID == 2)
+            {
+
+    <tr style="background:green">
+        <td>
+
+            @Html.DisplayFor(modelItem => item.PatientName)
+            <input type="text" name="Patient_Name" hidden value='@item.PatientName'>
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppDate)
+            <input type="text" name="AppDate" hidden value='@item.AppDate'>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppTime)
+            <input type="text" name="AppTime" hidden value='@item.AppTime'>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppStatus.Status)
+            <input type="text" name="Status" hidden value='@item.AppStatus.Status'>
+        </td>
+        <td style="max-width:">
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        @if (MySession.Current.RoleID == 1)
+        {
+            <td>
+
+                @Html.ActionLink("Confirm", "Edit", new { id = item.AppID, @class = "btn btn-info" }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.AppID, @class = "button-default link" }, new { onclick = "return confirm('Are you sure?');", @class = "btn btn-danger" })
+                @Html.ActionLink("Email", "SendEmail", new { id = item.AppID, @class = "btn btn-success" }, new { @class = "btn btn-success" })
+
+            </td>
+        }
+
+    </tr>
+
+
+            }
+            else if (item.StatusID == 3)
+            {
+
+    <tr style="background:red">
+        <td>
+
+            @Html.DisplayFor(modelItem => item.PatientName)
+            <input type="text" name="Patient_Name" hidden value='@item.PatientName'>
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppDate)
+            <input type="text" name="AppDate" hidden value='@item.AppDate'>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppTime)
+            <input type="text" name="AppTime" hidden value='@item.AppTime'>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppStatus.Status)
+            <input type="text" name="Status" hidden value='@item.AppStatus.Status'>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        @if (MySession.Current.RoleID == 1)
+        {
+            <td>
+
+                @Html.ActionLink("Confirm", "Edit", new { id = item.AppID, @class = "btn btn-info" }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.AppID, @class = "button-default link" }, new { onclick = "return confirm('Are you sure?');", @class = "btn btn-danger" })
+                @Html.ActionLink("Email", "SendEmail", new { id = item.AppID, @class = "btn btn-success" }, new { @class = "btn btn-success" })
+              
+            </td>
+        }
+        </tr>
+
+
+
+            }
+        }
+    </tbody>
+
+</table>
